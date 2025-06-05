@@ -34,7 +34,7 @@ data "onepassword_item" "proxmox_ssh" {
 provider "proxmox" {
   endpoint  = "https://havnor.pve.apicius.local:8006/"
   insecure  = true
-  api_token = data.onepassword_item.proxmox_token
+  api_token = data.onepassword_item.proxmox_token.credential
 
   ssh {
     agent    = true
