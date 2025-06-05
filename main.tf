@@ -4,7 +4,7 @@ data "proxmox_virtual_environment_time" "first_node_time" {
 }
 
 resource "proxmox_virtual_environment_download_file" "twice_cooked_pork" {
-  for_each     = toset(for node in data.proxmox_virtual_environment_nodes.available_nodes.names)
+  for_each     = toset(data.proxmox_virtual_environment_nodes.available_nodes.names)
   content_type = "jpg"
   datastore_id = "local"
   node_name    = each.value
